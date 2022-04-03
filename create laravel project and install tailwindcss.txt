@@ -1,0 +1,28 @@
+1-composer create-project laravel/laravel projectname
+
+2-cd projectname
+
+3-npm install -D tailwindcss postcss autoprefixer
+
+4-npx tailwindcss init
+
+5-on webpack.mix.js file add on mix.js(postCSS{}):
+	require("tailwindcss"),
+
+6-on tailwind.config.js file add on content:
+	"./resources/**/*.blade.php",
+    	"./resources/**/*.js",
+    	"./resources/**/*.vue",
+
+7-on resources/css/app.css file add:
+	@tailwind base;
+	@tailwind components;
+	@tailwind utilities;
+
+8-npm run watch
+	if not run:
+		1-npm install
+		2-npm install laravel-mix@latest --save-dev
+		3-npm run dev
+		4-npm install -D tailwindcss@latest postcss@latest autoprefixer@latest
+		5-npm run watch <-again->
